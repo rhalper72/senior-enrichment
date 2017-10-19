@@ -18,12 +18,6 @@ const Students = db.define('students', {
             isEmail: true,
         }
     },
-    // campus: {
-    //     type: Sequelize.STRING,
-    //     validate: {
-    //         notEmpty: true,
-    //     }
-    // }
 });
 
 module.exports = Students;

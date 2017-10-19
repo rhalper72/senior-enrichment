@@ -4,9 +4,29 @@ import { Link } from 'react-router-dom';
 const Navbar = (props) =>
 {
     return (
-        <navbar>
-            <h1>YAY!</h1>
-        </navbar>
+    <navbar>
+    <div>
+        <h5>
+            <Link to="/">
+            HOME
+            </Link>
+        </h5>
+      </div>
+      <div>
+        <h5>
+            <Link to="/campuses">
+            CAMPUSES
+            </Link>
+        </h5>
+      </div>
+      <div>
+        <h5>
+            <Link to="/students">
+            STUDENTS
+            </Link>
+        </h5>
+      </div>
+    </navbar>
     );
 }
 
