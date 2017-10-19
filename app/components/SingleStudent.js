@@ -1,14 +1,14 @@
 import React from 'react';
 
 const SingleStudent = (props) => {
-    const name = props.student.firstName + props.student.lastName;
+    const name = props.student.firstName + ' ' + props.student.lastName;
     const email = props.student.email;
 
     return (
         <div>
             <ul>
                 <li>{name}</li>
-                <li>{email}</li>>
+                <li>Email: {email}</li>
             </ul>
         </div>
     )
