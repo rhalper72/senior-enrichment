@@ -20,5 +20,9 @@ export default function reducer (students = [], action) {
 //THUNK CREATORS
 export const fetchStudents = () => dispatch => {
     axios.get('/api/students')
-         .then(res => dispatch(get(res.data)));
+         .then(res => res.data)
+         .then(students => {
+             dispatch(get(students))
+         })
+         .catch(console.error)
 };

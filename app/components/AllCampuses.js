@@ -5,12 +5,12 @@ import { fetchCampuses } from '../reducers/campuses';
 
 class AllCampuses extends Component {
 
-    componentDidMount() {
-        this.props.goFetchCampuses();
-      }
+    // componentDidMount() {
+    //     this.props.goFetchCampuses();
+    //   }
 
     render() {
-        console.log(this.props)
+        console.log('PROPS!', this.props)
         const { campuses } = this.props;
         return (
             <div>
@@ -24,8 +24,8 @@ const mapStateToProps = (state) => ({
     campuses: state.campuses
 })
 
-const mapDispatchToProps = (dispatch) => ({
-    goFetchCampuses: () => dispatch(fetchCampuses())
-  })
+// const mapDispatchToProps = (dispatch) => ({
+//     goFetchCampuses: () => dispatch(fetchCampuses())
+//   })
 
-export default connect(mapStateToProps, mapDispatchToProps)(AllCampuses);
+export default connect(mapStateToProps, null)(AllCampuses);

@@ -1,15 +1,16 @@
 const express = require('express');
 const campusRouter = express.Router();
 const Campus = require('../../db/models').Campus
+const Student = require('../../db/models').Student
 
 campusRouter.get('/', function(req, res, next) {
-    Campus.findAll({ where: req.query })
+    Campus.findAll({ include: [Student]})
     .then(campus => res.json(campus))
     .catch(next)
 })
 
 campusRouter.param('campusId', (req, res, next, id) => {
-    Campus.findById(id)
+    Campus.findById(id, {include: [{all: true}]})
         .then(campus => {
             if (!campus) {
                 const err = new Error('Not Found')
@@ -22,9 +23,9 @@ campusRouter.param('campusId', (req, res, next, id) => {
         .catch(next);
 })
 
-campusRouter.get('/:campusId', function(req, res, next){
-    res.json(req.campus);
-})
+// campusRouter.get('/:campusId', function(req, res, next){
+//     res.json(req.campus);
+// })
 
 campusRouter.post('/', function(req, res, next){
     Campus.create(req.body)

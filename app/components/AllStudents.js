@@ -5,9 +5,9 @@ import { fetchStudents } from '../reducers/students';
 
 class AllStudents extends Component {
 
-    componentDidMount() {
-        this.props.goFetchStudents();
-      }
+    // componentDidMount() {
+    //     this.props.goFetchStudents();
+    //   }
 
     render() {
         console.log(this.props)
@@ -24,8 +24,8 @@ const mapStateToProps = (state) => ({
     students: state.students
 })
 
-const mapDispatchToProps = (dispatch) => ({
-    goFetchStudents: () => dispatch(fetchStudents())
-  })
+// const mapDispatchToProps = (dispatch) => ({
+//     goFetchStudents: () => dispatch(fetchStudents())
+//   })
 
-export default connect(mapStateToProps, mapDispatchToProps)(AllStudents);
+export default connect(mapStateToProps, null)(AllStudents);
