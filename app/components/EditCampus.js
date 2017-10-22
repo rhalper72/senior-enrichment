@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createNewCampus } from '../reducers/campuses'
+import { updateCampus } from '../reducers/campuses'
 
-class NewCampus extends Component {
+class EditCampus extends Component {
     constructor (props){
         super(props)
 
@@ -59,12 +59,12 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
             name: event.target.name.value,
             image: event.target.image.value,
         }
-        dispatch(createNewCampus(campus));
+        dispatch(updateCampus(ownProps.match.params.id, campus));
         ownProps.history.push('/campuses');
     }
   })
 
 
 
-export default connect(null, mapDispatchToProps)(NewCampus);
+export default connect(null, mapDispatchToProps)(EditCampus);
 

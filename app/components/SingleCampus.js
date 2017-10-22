@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { removeCampus } from '../reducers/campuses';
+import { connect } from 'react-redux';
 
 const SingleCampus = (props) => {
     const name = props.campus.name;
@@ -14,8 +16,16 @@ const SingleCampus = (props) => {
                     <img src={image} />
                 </Link>
             </ul>
+            <button onClick={() => {props.onDelete(campusId)} }>Delete</button>
         </div>
     )
 }
 
-export default SingleCampus;
+const mapDispatchToProps = (dispatch, ownProps) => ({
+    onDelete: (id) => {
+        dispatch(removeCampus(id));
+        // ownProps.history.push('/campuses');
+    }
+  })
+
+export default connect(null, mapDispatchToProps)(SingleCampus);

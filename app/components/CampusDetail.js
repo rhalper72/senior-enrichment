@@ -23,6 +23,9 @@ class CampusDetail extends Component {
         return (
             <div>
                 <h1>{campus && campus.name} Campus</h1>
+                <Link to={`/campuses/edit/${campus.id}`}>
+                <button>Edit</button>
+                </Link>
                 <img src={campus && campus.image} />
                 <h2>Student List</h2>
                 <ol>

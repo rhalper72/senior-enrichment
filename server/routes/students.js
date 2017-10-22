@@ -23,9 +23,9 @@ studentRouter.param('studentId', (req, res, next, id) => {
         .catch(next);
 })
 
-// studentRouter.get('/:studentId', function(req, res, next){
-//     res.json(req.student);
-// })
+studentRouter.get('/:studentId', function(req, res, next){
+    res.json(req.student);
+})
 
 studentRouter.post('/', function(req, res, next){
     Student.create(req.body)

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const SingleStudent = (props) => {
     const name = props.student.firstName + ' ' + props.student.lastName;
-    const campus = props.student.campus.name
+    const campus = props.student.campus ? props.student.campus.name : ''
     const email = props.student.email;
     const studentId = props.student.id
 

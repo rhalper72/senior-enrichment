@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SingleCampus from './SingleCampus';
 import { fetchCampuses } from '../reducers/campuses';
+import { Link } from 'react-router-dom';
 
 class AllCampuses extends Component {
 
@@ -14,7 +15,13 @@ class AllCampuses extends Component {
         const { campuses } = this.props;
         return (
             <div>
-                {campuses && campuses.map(campus => <SingleCampus key={campus.id} campus={campus} />)}
+                <h1>Our Campuses:</h1>
+                <Link to={`/addNewCampus`}>
+                <button>Add New Campus</button>
+                </Link>
+                <div>
+                    {campuses && campuses.map(campus => <SingleCampus key={campus.id} campus={campus} />)}
+                </div>
             </div>
         )
     }

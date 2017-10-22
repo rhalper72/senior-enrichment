@@ -23,9 +23,9 @@ campusRouter.param('campusId', (req, res, next, id) => {
         .catch(next);
 })
 
-// campusRouter.get('/:campusId', function(req, res, next){
-//     res.json(req.campus);
-// })
+campusRouter.get('/:campusId', function(req, res, next){
+    res.json(req.campus);
+})
 
 campusRouter.post('/', function(req, res, next){
     Campus.create(req.body)
