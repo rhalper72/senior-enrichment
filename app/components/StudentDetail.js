@@ -19,13 +19,16 @@ class StudentDetail extends Component {
 
         return (
             <div>
-                    <h3>{student && student.firstName + ' ' + student.lastName}</h3>
-                    <ul>
+                <h3>{student && student.firstName + ' ' + student.lastName}</h3>
+                <Link to={`/students/edit/${student && student.id}`}>
+                    <button>Edit</button>
+                </Link>
+                <ul>
                     <Link to={`/campuses/${campusId}`}>
                         <li>Campus: {student && student.campus.name}</li>
                     </Link>
-                        <li>Email: {student && student.email}</li>
-                    </ul>
+                    <li>Email: {student && student.email}</li>
+                </ul>
             </div>
         )
     }

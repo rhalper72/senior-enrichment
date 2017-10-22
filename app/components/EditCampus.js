@@ -33,7 +33,7 @@ class EditCampus extends Component {
     render() {
         return (
             <div>
-                <h1>Add A New Campus</h1>
+                <h1>Edit Campus</h1>
                 <form onSubmit={this.handleSubmit}>
                     <label>Campus Name: </label>
                     <input type="text" name="name" onChange={this.handleName} value={this.state.name} />

@@ -10,6 +10,7 @@ import StudentDetail from './StudentDetail';
 import NewCampus from './NewCampus';
 import NewStudent from './NewStudent';
 import EditCampus from './EditCampus';
+import EditStudent from './EditStudent';
 import {connect} from 'react-redux';
 import { fetchCampuses } from '../reducers/campuses';
 import { fetchStudents } from '../reducers/students';
@@ -29,6 +30,7 @@ class Root extends Component{
           <Route exact path="/campuses/edit/:id" component={EditCampus} />
           <Route exact path="/students" component={AllStudents} />
           <Route exact path="/students/:id" component={StudentDetail} />
+          <Route exact path="/students/edit/:id" component={EditStudent} />
           <Route exact path="/addNewCampus" component={NewCampus} />
           <Route exact path="/addNewStudent" component={NewStudent} />
           <Route component={Main} />

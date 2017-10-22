@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { removeStudent } from '../reducers/students';
+import { connect } from 'react-redux';
 
 const SingleStudent = (props) => {
     const name = props.student.firstName + ' ' + props.student.lastName;
@@ -16,8 +18,16 @@ const SingleStudent = (props) => {
                 <li>Campus: {campus}</li>
                 <li>Email: {email}</li>
             </ul>
+            <button onClick={() => {props.onDelete(studentId)} }>{`Delete ${props.student.firstName}`}</button>
         </div>
     )
 }
 
-export default SingleStudent;
+const mapDispatchToProps = (dispatch, ownProps) => ({
+    onDelete: (id) => {
+        dispatch(removeStudent(id));
+        // ownProps.history.push('/campuses');
+    }
+  })
+
+export default connect(null, mapDispatchToProps)(SingleStudent);
