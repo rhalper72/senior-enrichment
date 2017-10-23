@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+//This my navbar, no CSS currently.  Just 3 links at the top of the page.
 const Navbar = (props) =>
 {
     return (

@@ -12,7 +12,7 @@ const create = campus  => ({ type: CREATE_CAMPUS, campus });
 const update = campus  => ({ type: UPDATE_CAMPUS, campus });
 const remove = campus  => ({ type: REMOVE_CAMPUS, campus });
 
-//REDUCER
+//REDUCER - since i split my reducer into two files and only have one prop of inital state in each file I am just passing in that one intial prop instead of an object.
 export default function reducer (campuses = [], action) {
   switch (action.type) {
 
@@ -35,16 +35,12 @@ export default function reducer (campuses = [], action) {
 
 
 //THUNK CREATORS
+//orignailly had a fetchCampus Thunk as well, which took in an id, to just fetch one campus... but ended up using fetchcampus for both needs.
 export const fetchCampuses = () => dispatch => {
   axios.get('/api/campuses')
        .then(res => dispatch(get(res.data)))
        .catch(err => console.error(`Getting campuses unsuccesful`, err));
 };
-
-// export const fetchCampus = (id) => dispatch => {
-//   axios.get(`/api/campus/${id}`)
-//        .then(res => dispatch(get(res.data)));
-// };
 
 export const createNewCampus = campus => dispatch => {
   axios.post('/api/campuses', campus)

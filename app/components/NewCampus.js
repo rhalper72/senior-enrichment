@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createNewCampus } from '../reducers/campuses'
 
+//This component displays a page where you can add a new campus.
 class NewCampus extends Component {
     constructor (props){
         super(props)
-
+//I am keeping track of changes on the local state, then sending them to the store on submit.
+//Later I would like to come back add additional functionality using the local state, like keeping the submit button deactive until the fields have text in them.
         this.state = {
             name: '',
             image: '',
@@ -14,19 +16,17 @@ class NewCampus extends Component {
         this.handleName = this.handleName.bind(this)
         this.handleImage = this.handleImage.bind(this)
     }
-
+    //event handlers for change and submit. 
     handleSubmit(event){
         event.preventDefault();
         this.props.onSubmit(event);
     }
 
     handleName(event){
-        console.log('NAME', event.target.value)
         this.setState({name: event.target.value})
     }
 
     handleImage(event){
-        console.log('IMAGE', event.target.value)
         this.setState({image: event.target.value})
     }
 
@@ -47,14 +47,9 @@ class NewCampus extends Component {
         )
     }
 }
-
-// const mapStateToProps = (state) => ({
-//     students: state.students
-// })
-
+//dispatching to the store to create a new campus.
 const mapDispatchToProps = (dispatch, ownProps) => ({
     onSubmit: (event) => {
-        console.log('OWN', ownProps)
         const campus = {
             name: event.target.name.value,
             image: event.target.image.value,
@@ -63,7 +58,6 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
         ownProps.history.push('/campuses');
     }
   })
-
 
 
 export default connect(null, mapDispatchToProps)(NewCampus);

@@ -4,11 +4,9 @@ import SingleCampus from './SingleCampus';
 import { fetchCampuses } from '../reducers/campuses';
 import { Link } from 'react-router-dom';
 
-class AllCampuses extends Component {
+//This page displays all campuses. It maps the SingleCampus component for existing campus.
 
-    // componentDidMount() {
-    //     this.props.goFetchCampuses();
-    //   }
+class AllCampuses extends Component {
 
     render() {
         console.log('PROPS!', this.props)
@@ -30,9 +28,5 @@ class AllCampuses extends Component {
 const mapStateToProps = (state) => ({
     campuses: state.campuses
 })
-
-// const mapDispatchToProps = (dispatch) => ({
-//     goFetchCampuses: () => dispatch(fetchCampuses())
-//   })
 
 export default connect(mapStateToProps, null)(AllCampuses);

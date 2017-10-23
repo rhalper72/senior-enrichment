@@ -1,19 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-// import { fetchCampuses } from '../reducers/campuses';
-// import { SingleCampus } from './SingleCampus'
+
+//This component displays all the details for one student.  
 
 class StudentDetail extends Component {
 
-
-
-    // componentDidMount() {
-    //     this.props.goFetchCampuses();
-    // }
-
     render() {
-        // console.log('PROPS!', this.props.student)
         const { student } = this.props;
         const campusId = student && student.campusId;
 
@@ -36,18 +29,13 @@ class StudentDetail extends Component {
 
 }
 
+//getting the student that matches the id param in URL from the Store.
+
 const mapStateToProps = (state, ownProps) => {
     const studentId = Number(ownProps.match.params.id);
     return {
         student: state.students.find(student => student.id === studentId)
     }
 }
-
-// const mapDispatchToProps = (dispatch) => ({
-//     fetchInitialData: () => {
-//         dispatch(fetchCampuses());
-//         dispatch(fetchStudents());
-//       }
-// })
 
 export default connect(mapStateToProps, null)(StudentDetail);

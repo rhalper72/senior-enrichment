@@ -12,7 +12,7 @@ const create = student => ({ type: CREATE_STUDENT, student });
 const update = student  => ({ type: UPDATE_STUDENT, student });
 const remove = student  => ({ type: REMOVE_STUDENT, student });
 
-//REDUCER
+//REDUCER - since i split my reducer into two files and only have one prop of inital state on each I am just passing in that one intial prop instead of an object.
 export default function reducer (students = [], action) {
     switch (action.type) {
 
@@ -34,6 +34,7 @@ export default function reducer (students = [], action) {
 }
 
 //THUNK CREATORS
+//orignailly had a fetchStudent as well, to just fetch one student... but ended up using fetchStudents for both needs.
 export const fetchStudents = () => dispatch => {
     axios.get('/api/students')
          .then(res => res.data)

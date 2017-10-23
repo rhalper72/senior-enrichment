@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createNewStudent } from '../reducers/students'
-
+//I am keeping track of changes on the local state, then sending them to the store on submit.
+//Later I would like to come back add additional functionality using the local state, like keeping the submit button deactive until the fields have text in them.
 class NewStudent extends Component {
     constructor (props){
         super(props)
@@ -23,38 +24,25 @@ class NewStudent extends Component {
         this.props.onSubmit(event);
     }
 
-    // handleAnyChange(event){
-    //     console.log('onChange', event.target.value)
-    //     this.setState({
-    //         firstName: event.target.firstName.value ? event.target.firstName.value : this.state.firstName,
-    //         lastName: event.target.lastName.value,
-    //         email: event.target.email.value,
-    //         campus: event.target.campus.value
-    //     })
-    // }
-
+    //event handlers for each input field.  Feels like there has to be a more DRY way to do this, 
+    //but I tried a few things unsuccessfully and came back to listing them individually.
     handleFirstName(event){
-        console.log('first', event.target.value)
         this.setState({firstName: event.target.value})
     }
 
     handleLastName(event){
-        console.log('last', event.target.value)
         this.setState({lastName: event.target.value})
     }
 
     handleEmail(event){
-        console.log('email', event.target.value)
         this.setState({email: event.target.value})
     }
 
     handleCampus(event){
-        console.log('campus', event.target.value)
         this.setState({campus: event.target.value})
     }
 
     render() {
-        // console.log('camps', this.props.campuses)
         return (
             <div>
                 <h1>Add A New Studnet</h1>
@@ -84,11 +72,11 @@ class NewStudent extends Component {
         )
     }
 }
-
+//getting campuses from the store to list them in my select field.
 const mapStateToProps = (state) => ({
     campuses: state.campuses,
 })
-
+//dispatching to store to create a new student.
 const mapDispatchToProps = (dispatch, ownProps) => ({
     onSubmit: (event) => {
         const student = {

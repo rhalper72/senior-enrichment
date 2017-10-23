@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize');
 const db = require('../');
 
+//Defining my campus model, just giving it name and an image.
 const Campuses = db.define('campuses', {
     name: {
         type: Sequelize.STRING,
@@ -10,7 +11,7 @@ const Campuses = db.define('campuses', {
         }
     },
     image: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         validate: {
             isUrl: true,
         }

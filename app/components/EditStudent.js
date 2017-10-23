@@ -13,35 +13,30 @@ class EditStudent extends Component {
             campus: '',
         }
         this.handleSubmit = this.handleSubmit.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
         this.handleFirstName = this.handleFirstName.bind(this)
         this.handleLastName = this.handleLastName.bind(this)
         this.handleEmail = this.handleEmail.bind(this)
         this.handleCampus = this.handleCampus.bind(this)
     }
-
+//event handlers, again not very dry. one for each input field and a submit.
     handleSubmit(event){
         event.preventDefault();
         this.props.onSubmit(event);
     }
 
     handleFirstName(event){
-        console.log('first', event.target.value)
         this.setState({firstName: event.target.value})
     }
 
     handleLastName(event){
-        console.log('last', event.target.value)
         this.setState({lastName: event.target.value})
     }
 
     handleEmail(event){
-        console.log('email', event.target.value)
         this.setState({email: event.target.value})
     }
 
     handleCampus(event){
-        console.log('campus', event.target.value)
         this.setState({campus: event.target.value})
     }
 
@@ -81,10 +76,9 @@ const mapStateToProps = (state) => ({
     students: state.students,
     campuses: state.campuses,
 })
-
+//dispatch to update a student in the store.
 const mapDispatchToProps = (dispatch, ownProps) => ({
     onSubmit: (event) => {
-        console.log('OWN', ownProps)
         const student = {
             firstName: event.target.firstName.value,
             lastName: event.target.lastName.value,
