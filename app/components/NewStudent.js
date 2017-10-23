@@ -43,7 +43,6 @@ class NewStudent extends Component {
     }
 
     render() {
-        console.log('PROPSL: ', this.props)
         return (
             <div>
                 <h1>Add A New Student</h1>
