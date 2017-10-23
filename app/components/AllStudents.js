@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 class AllStudents extends Component {
 
     render() {
-        console.log(this.props)
         const { students } = this.props;
         return (
             <div>

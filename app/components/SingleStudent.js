@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 //Please note I completly refactored this page when attempting to fix an error with delete, which is why it is done differently than single campus.
 //this uses mapStateToProps, single campus doesn't.  Turns out that wasn't the issue at all in the end.
 const SingleStudent = (props) => {
-    console.log('Propos: ', props)
     const currentStudent = props.students.find((student)=>{
         return student.id === props.studentId
     })
@@ -18,7 +17,6 @@ const SingleStudent = (props) => {
 
     return (
         <div>
-            {console.log('running')}
             <ul>
             <Link to={`/students/${studentId}`}>
                 <li>{name}</li>

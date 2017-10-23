@@ -9,7 +9,6 @@ import { Link } from 'react-router-dom';
 class AllCampuses extends Component {
 
     render() {
-        console.log('PROPS!', this.props)
         const { campuses } = this.props;
         return (
             <div>
