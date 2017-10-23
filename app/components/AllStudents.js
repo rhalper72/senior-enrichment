@@ -16,7 +16,7 @@ class AllStudents extends Component {
                 <Link to={`/addNewStudent`}>
                 <button>Add New Student</button>
                 </Link>
-                {students && students.map(student => <SingleStudent key={student.id} student={student} />)}
+                {students && students.map(student => <SingleStudent key={student.id} studentId={student.id} />)}
             </div>
         )
     }

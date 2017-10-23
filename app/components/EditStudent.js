@@ -45,6 +45,7 @@ class EditStudent extends Component {
         return (
             <div>
             <h1>Edit Student</h1>
+            <h4>Please fill in any fields you would like to update</h4>
             <form onSubmit={this.handleSubmit}>
                 <label>First Name: </label>
                 <input type="text" name="firstName" onChange={this.handleFirstName} value={this.state.firstName} />
@@ -79,13 +80,12 @@ const mapStateToProps = (state) => ({
 //dispatch to update a student in the store.
 const mapDispatchToProps = (dispatch, ownProps) => ({
     onSubmit: (event) => {
-        const student = {
-            firstName: event.target.firstName.value,
-            lastName: event.target.lastName.value,
-            email: event.target.email.value,
-            campusId: event.target.campus.value
-        }
-        dispatch(updateStudent(ownProps.match.params.id, student));
+        const studentUpdate = {}
+        if (event.target.firstName.value) studentUpdate.firstName = event.target.firstName.value
+        if (event.target.lastName.value) studentUpdate.lastName = event.target.lastName.value
+        if (event.target.email.value) studentUpdate.email = event.target.email.value
+        if (event.target.campus.value) studentUpdate.campus = event.target.campus.value
+        dispatch(updateStudent(ownProps.match.params.id, studentUpdate));
         ownProps.history.push('/students');
     }
   })

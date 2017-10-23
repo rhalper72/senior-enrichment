@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 //This component is displays all the details, including associated students, for one campus.
+//Had some initial trouble getting this page to work so tried a whole bunch of different ways to configure... 
+//in the end I had forgotten I was using firstName/LastName in the database for student and not just name.
 class CampusDetail extends Component {
 
     render() {

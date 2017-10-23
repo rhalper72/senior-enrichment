@@ -43,9 +43,10 @@ class NewStudent extends Component {
     }
 
     render() {
+        console.log('PROPSL: ', this.props)
         return (
             <div>
-                <h1>Add A New Studnet</h1>
+                <h1>Add A New Student</h1>
                 <form onSubmit={this.handleSubmit}>
                     <label>First Name: </label>
                     <input type="text" name="firstName" onChange={this.handleFirstName} value={this.state.firstName} />

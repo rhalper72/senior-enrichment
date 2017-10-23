@@ -16,15 +16,15 @@ const SingleCampus = (props) => {
                     <img src={image} />
                 </Link>
             </ul>
-            <button onClick={() => {props.onDelete(campusId)} }>Delete</button>
+            <button onClick={() => {props.onDelete(props.campus)} }>Delete</button>
         </div>
     )
 }
 //This is my dispatch to props for deleting a campus. Unfortunately my delete is not 100% working.
 //I am deleting the campus in the database, but it doesn't show on the page until you refresh... which means I am probably not updating the store properly.
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    onDelete: (id) => {
-        dispatch(removeCampus(id));
+    onDelete: (campus) => {
+        dispatch(removeCampus(campus));
     }
   })
 

@@ -60,13 +60,11 @@ const mapStateToProps = (state, ownProps) => {
 //Dispatch to edit
 const mapDispatchToProps = (dispatch, ownProps) => ({
     onSubmit: (event) => {
-        console.log('OWN', ownProps)
-        const campus = {
-            name: event.target.name.value,
-            image: event.target.image.value,
-        }
-        dispatch(updateCampus(ownProps.match.params.id, campus));
-        ownProps.history.push('/campuses');
+        const campusUpdate = {}
+        if (event.target.name.value) campusUpdate.name = event.target.name.value
+        if (event.target.image.value) campusUpdate.image = event.target.image.value
+        dispatch(updateCampus(ownProps.match.params.id, campusUpdate));
+        ownProps.history.push(`/campuses/`);
     }
   })
 

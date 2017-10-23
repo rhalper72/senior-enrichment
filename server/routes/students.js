@@ -30,6 +30,8 @@ studentRouter.get('/:studentId', function(req, res, next){
 //route to create a new student
 studentRouter.post('/', function(req, res, next){
     Student.create(req.body)
+    //added this so that I have access to campuses when I create a student
+    .then(newStudent => Student.findById(newStudent.id, {include: [{all: true}]}))
     .then(newStudent => res.status(201).json(newStudent))
     .catch(next)
 })

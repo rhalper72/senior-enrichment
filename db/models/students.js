@@ -20,6 +20,9 @@ const Students = db.define('students', {
             isEmail: true,
         }
     },
+    image: {
+        type: Sequelize.TEXT,
+    }
 });
 
 module.exports = Students;

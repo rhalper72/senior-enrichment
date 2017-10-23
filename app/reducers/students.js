@@ -53,11 +53,11 @@ export const createNewStudent = student => dispatch => {
   export const updateStudent = (id, student) => dispatch => {
     axios.put(`/api/students/${id}`, student)
          .then(res => dispatch(update(res.data)))
-         .catch(err => console.error(`Updating student: ${student} unsuccesful`, err));
+         .catch(err => console.error(`Updating student: ${id} unsuccesful`, err));
   };
 
-  export const removeStudent = id => dispatch => {
-    dispatch(remove(id));
-    axios.delete(`/api/students/${id}`)
-         .catch(err => console.error(`Removing student: ${id} unsuccesful`, err));
+  export const removeStudent = student => dispatch => {
+    dispatch(remove(student));
+    axios.delete(`/api/students/${student.id}`)
+         .catch(err => console.error(`Removing student: ${student.id} unsuccesful`, err));
   };

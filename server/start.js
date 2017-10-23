@@ -34,6 +34,12 @@ if (module === require.main) {
           ~ To help compare these objects, reference each of their `id` attributes
   */
 
+  //very simple error handling
+  app.use(function (err, req, res, next) {
+    if (!err.stack || !err.message) next(err);
+    res.status(err.status || 500).end();
+  });
+
   const PORT = 1337
 
   const db = require('../db')

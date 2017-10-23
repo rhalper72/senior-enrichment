@@ -51,11 +51,11 @@ export const createNewCampus = campus => dispatch => {
 export const updateCampus = (id, campus) => dispatch => {
   axios.put(`/api/campuses/${id}`, campus)
        .then(res => dispatch(update(res.data)))
-       .catch(err => console.error(`Updating campus: ${campus} unsuccesful`, err));
+       .catch(err => console.error(`Updating campus: ${id} unsuccesful`, err));
 };
 
-export const removeCampus = id => dispatch => {
-    dispatch(remove(id));
-    axios.delete(`/api/campuses/${id}`)
-         .catch(err => console.error(`Removing campus: ${id} unsuccesful`, err));
+export const removeCampus = campus => dispatch => {
+    dispatch(remove(campus));
+    axios.delete(`/api/campuses/${campus.id}`)
+         .catch(err => console.error(`Removing campus: ${campus.id} unsuccesful`, err));
   };
